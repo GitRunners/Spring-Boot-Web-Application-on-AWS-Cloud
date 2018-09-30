@@ -36,30 +36,24 @@ before_deploy:
 
 deploy:
 - provider: s3
-  access_key_id: AKIAIX6QLOIPWLR6NSCA
-  secret_access_key:
-    secure: "nd1RqTGIi+jFGx7PFTE2ZG/PbF7ECRzhkVtDsy+YgdXrUxn0p9Ibtc/cMwg0SYQ7xVtwFaXQK8Z6RGovw6g9Gk7R1AaiDqlSDjO/qdmuMyA0GoON0ZHRJSNqZoC9aJIAQIFWVLKthYUPWXhIpDTh4LXXeYYVfiqXklq3lmW/kiiJQP1NGpWka8egsfqwBs1Pxd7Gd5VuPdxcbenkb3V6i30bgCWJFIpcNNsBuCZOn3DbRws6xGmBw/ygjnZsRPt61tuMQeZzp6bup9jE+W194TGVyZXEGGjCUzGdFZxrGelA3qkgke/bdMNPk0myxa9t2q433T+PdkyB0LTNWi1WdLes+gDakBU5S+Nt7TaCAzglOFN6YBs43yI/X6XrSj6RF/y4YhL6oGaHd3p68Wng4NMuIGqGhpRSyEPe4/2VagTkwp/8dNz5b3cusPpC1AyD34TVOFcEDCEufIKrKhp8/svWhTMTg5aF71rsXvlEL/k3r5Cv/dj1wlZXMdcmHPZMquz/KB66O5mddYB2rBtfnrCOrw3MgCXDOKeuQRliKKf75RwqFYG+B+XtkVIsYg/8KPcl2lG7XAC0CgBd+r3Ed5s9ZUSEyO2TKaGUdFCE19yN9O2g1bNQEZC93COmT4oeJF4L2Lnl+btlhbmp9qpzHuiTfaLD3eMEH15RgyQ2pGs="
-  local_dir: codedeploy
-  bucket: ec2.csye6225-fall2017-guptarite.me.csye6225.com
-  region: us-east-1
+  access_key_id: AKIAJI5ETPA6DEKVPJ5Q
+  secret_access_key: 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
+  bucket: storageforgithubdeploy
+  region: ap-northeast-2
   skip_cleanup: true
 
 - provider: codedeploy
-  access_key_id: AKIAIX6QLOIPWLR6NSCA
-  bucket: ec2.csye6225-fall2017-guptarite.me.csye6225.com
+  access_key_id: AKIAJI5ETPA6DEKVPJ5Q
+  bucket: storageforgithubdeploy
   key: WebApp1.zip
   bundle_type: zip
-  application: Csye6225
-  deployment_group: Csye6225
-  region: us-east-1
+  application: CodeDeployGitHubDemo-App
+  deployment_group: CodeDeployGitHubDemo-DepGrp
+  region: ap-northeast-2
   secret_access_key:
-    secure: "nd1RqTGIi+jFGx7PFTE2ZG/PbF7ECRzhkVtDsy+YgdXrUxn0p9Ibtc/cMwg0SYQ7xVtwFaXQK8Z6RGovw6g9Gk7R1AaiDqlSDjO/qdmuMyA0GoON0ZHRJSNqZoC9aJIAQIFWVLKthYUPWXhIpDTh4LXXeYYVfiqXklq3lmW/kiiJQP1NGpWka8egsfqwBs1Pxd7Gd5VuPdxcbenkb3V6i30bgCWJFIpcNNsBuCZOn3DbRws6xGmBw/ygjnZsRPt61tuMQeZzp6bup9jE+W194TGVyZXEGGjCUzGdFZxrGelA3qkgke/bdMNPk0myxa9t2q433T+PdkyB0LTNWi1WdLes+gDakBU5S+Nt7TaCAzglOFN6YBs43yI/X6XrSj6RF/y4YhL6oGaHd3p68Wng4NMuIGqGhpRSyEPe4/2VagTkwp/8dNz5b3cusPpC1AyD34TVOFcEDCEufIKrKhp8/svWhTMTg5aF71rsXvlEL/k3r5Cv/dj1wlZXMdcmHPZMquz/KB66O5mddYB2rBtfnrCOrw3MgCXDOKeuQRliKKf75RwqFYG+B+XtkVIsYg/8KPcl2lG7XAC0CgBd+r3Ed5s9ZUSEyO2TKaGUdFCE19yN9O2g1bNQEZC93COmT4oeJF4L2Lnl+btlhbmp9qpzHuiTfaLD3eMEH15RgyQ2pGs="
   wait-until-deployed: true
 
 notifications:
   email:
     recipients:
-      # jain.yo@husky.neu.edu
-      #- magare.r@husky.neu.edu
-      #- shetty.pr@husky.neu.edu
-      - gupta.rite@husky.neu.edu
+      - su_l@ctrip.com
