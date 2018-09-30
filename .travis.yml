@@ -50,7 +50,7 @@ deploy:
   application: CodeDeployGitHubDemo-App
   deployment_group: CodeDeployGitHubDemo-DepGrp
   region: ap-northeast-2
-  secret_access_key:
+  secret_access_key: 1kWWPw7X5kwP+ia9Q91I/bcnj2i8Z730NITm0HTY
   wait-until-deployed: true
 
 notifications:
