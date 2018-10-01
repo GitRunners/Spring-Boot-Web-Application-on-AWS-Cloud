@@ -14,15 +14,9 @@ files:
   - source: ./startCloudWatch.sh
     destination: /home/ec2-user
 
-permissions:
-  - object: /home/ec2-user/startCloudWatch.sh
-    mode: 777
 
 hooks:
   AfterInstall:
    - location: ./restartTomcat.sh
-     timeout: 180
-     runas: ec2-user
-   - location: ./startCloudWatch.sh
      timeout: 180
      runas: ec2-user
