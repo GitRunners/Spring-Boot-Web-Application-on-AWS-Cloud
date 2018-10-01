@@ -36,24 +36,20 @@ before_deploy:
 
 deploy:
 - provider: s3
-  access_key_id: AKIAJI5ETPA6DEKVPJ5Q
-  secret_access_key: 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
+  access_key_id: $access_key_id
+  secret_access_key: $access_key
   bucket: storageforgithubdeploy
   region: ap-northeast-2
   skip_cleanup: true
 
 - provider: codedeploy
-  access_key_id: AKIAJI5ETPA6DEKVPJ5Q
+  access_key_id: $access_key_id
+  secret_access_key: $access_key
   bucket: storageforgithubdeploy
   key: WebApp1.zip
   bundle_type: zip
   application: CodeDeployGitHubDemo-App
   deployment_group: CodeDeployGitHubDemo-DepGrp
   region: ap-northeast-2
-  secret_access_key: 1kWWPw7X5kwP+ia9Q91I/bcnj2i8Z730NITm0HTY
   wait-until-deployed: true
 
-notifications:
-  email:
-    recipients:
-      - su_l@ctrip.com
