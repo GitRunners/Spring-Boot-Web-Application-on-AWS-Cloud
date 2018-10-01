@@ -46,7 +46,7 @@ deploy:
   access_key_id: $access_key_id
   secret_access_key: $access_key
   bucket: storageforgithubdeploy
-  key: WebApp1.zip
+  key: codedeploy/WebApp1.zip
   bundle_type: zip
   application: CodeDeployGitHubDemo-App
   deployment_group: CodeDeployGitHubDemo-DepGrp
