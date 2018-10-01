@@ -1,7 +1,28 @@
+
 version: 0.0
 os: linux
 
-
 files:
   - source: ./appspec.yml
-    destination: /home/ec2-user/
+    destination: /home/ec2-user
+  - source: ./restartTomcat.sh
+    destination: /home/ec2-user
+  - source: ./build/libs/ROOT.war
+    destination: /opt/tomcat/webapps
+  - source: ./infrastructure/aws/cloudwatch/awslogs.conf
+    destination: /home/ec2-user
+  - source: ./startCloudWatch.sh
+    destination: /home/ec2-user
+
+permissions:
+  - object: /home/ec2-user/startCloudWatch.sh
+    mode: 777
+
+hooks:
+  AfterInstall:
+   - location: ./restartTomcat.sh
+     timeout: 180
+     runas: ec2-user
+   - location: ./startCloudWatch.sh
+     timeout: 180
+     runas: ec2-user
