@@ -1,6 +1,6 @@
 branches:
   only:
-  - master
+  - release-V1.0
 
 language: java
 jdk:
