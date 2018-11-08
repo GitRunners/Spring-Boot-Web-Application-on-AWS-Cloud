@@ -27,29 +27,25 @@ after_success:
   - cd codedeploy
   - pwd
   - ls -al
+  - cd ..
+  - mkdir deploy_to_s3
+  - cp appspec.yml deploy_to_s3
+  - cd deploy_to_s3
+  - ls -al
 
 before_deploy:
   - cd ..
   - ls -al
   - pwd
   - gem update --system
-
+  - cd deploy_to_s3
+  - ls -al
+  
 deploy:
-- provider: s3
+  - provider: s3
   access_key_id: $access_key_id
   secret_access_key: $access_key
   bucket: storageforgithubdeploy
   region: ap-northeast-2
   skip_cleanup: true
-
-- provider: codedeploy
-  access_key_id: $access_key_id
-  secret_access_key: $access_key
-  bucket: storageforgithubdeploy
-  key: codedeploy/WebApp1.zip
-  bundle_type: zip
-  application: CodeDeployGitHubDemo-App
-  deployment_group: CodeDeployGitHubDemo-DepGrp
-  region: ap-northeast-2
-  wait-until-deployed: true
 
