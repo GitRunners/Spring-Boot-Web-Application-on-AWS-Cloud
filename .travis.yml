@@ -19,18 +19,12 @@ script:
 
 after_success:
   - mkdir codedeploy
-  - zip -r WebApp1.zip build/libs/ROOT.war appspec.yml restartTomcat.sh infrastructure/aws/cloudwatch/awslogs.conf startCloudWatch.sh
   - ls -al
-  - mv WebApp1.zip codedeploy/
+  - mv appspec.yml  codedeploy/
   - ls -al
   - pwd
   - cd codedeploy
   - pwd
-  - ls -al
-  - cd ..
-  - mkdir deploy_to_s3
-  - cp appspec.yml deploy_to_s3/appspect.yml
-  - cd deploy_to_s3
   - ls -al
 
 before_deploy:
@@ -38,8 +32,6 @@ before_deploy:
   - ls -al
   - pwd
   - gem update --system
-  - cd deploy_to_s3
-  - ls -al
   
 deploy:
   - provider: s3
