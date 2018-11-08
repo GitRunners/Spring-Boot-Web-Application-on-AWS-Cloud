@@ -5,15 +5,6 @@ os: linux
 files:
   - source: ./appspec.yml
     destination: /home/ec2-user
-  - source: ./restartTomcat.sh
-    destination: /home/ec2-user
-  - source: ./build/libs/ROOT.war
-    destination: /opt/tomcat/webapps
-  - source: ./infrastructure/aws/cloudwatch/awslogs.conf
-    destination: /home/ec2-user
-  - source: ./startCloudWatch.sh
-    destination: /home/ec2-user
-
 
 hooks:
   AfterInstall:
