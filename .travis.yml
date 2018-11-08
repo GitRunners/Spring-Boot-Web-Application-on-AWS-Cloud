@@ -29,7 +29,7 @@ after_success:
   - ls -al
   - cd ..
   - mkdir deploy_to_s3
-  - cp appspec.yml deploy_to_s3
+  - cp appspec.yml deploy_to_s3/appspect.yml
   - cd deploy_to_s3
   - ls -al
 
